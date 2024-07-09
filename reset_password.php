@@ -1,5 +1,4 @@
 <?php
-// Include the connection script
 include 'connection.php';
 
 // Check if the form is submitted
@@ -15,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE accounts SET password = ? WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ss', $hashedPassword, $username);
-    
+
     if ($stmt->execute()) {
         echo "Password reset successfully!";
     } else {
