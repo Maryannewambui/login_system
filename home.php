@@ -1,5 +1,6 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
+/*			<p>Welcome back, <?=htmlspecialchars($_SESSION['name'], ENT_QUOTES)?>!</p>*/
+//DEFAULT LOGIN CREDENTIALS: Username: admin Password:admin123
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -18,14 +19,15 @@ if (!isset($_SESSION['loggedin'])) {
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>inventory Managament</h1>
+				<h1>Inventory Managament</h1>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
 		<div class="content">
 			<h2>Home Page</h2>
-			<p>Welcome back, <?=htmlspecialchars($_SESSION['name'], ENT_QUOTES)?>!</p>
+			<p>Welcome back, <?=$_SESSION['name']?>!</p>
 		</div>
 	</body>
 </html>
+
